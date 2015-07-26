@@ -1,0 +1,7 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  '.tree-view .directory.selected': [
+    {'label': 'Fetch File', 'command': 'fetch:file'},
+    {'label': 'Fetch Package', 'command': 'fetch:package'}
+    {'type': 'separator'}
+  ]
