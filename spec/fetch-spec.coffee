@@ -1,4 +1,4 @@
-Fetch = require '../lib/fetch'
+Fetch = require '../lib/main'
 
 # Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 #
