@@ -28,3 +28,5 @@ fetch:
 ## Todo
 - [ ] Add more default sources?
 - [ ] Write tests
+- [ ] Write a better README :p
+- [ ] Are there more options for fetching something into your project?
