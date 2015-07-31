@@ -2,7 +2,7 @@ request = require 'request'
 AdmZip = require 'adm-zip'
 fs = require 'fs-extended'
 
-class PackageDownloader
+class Package
   options: null
 
   constructor: (@options) ->
@@ -62,4 +62,4 @@ class PackageDownloader
       fs.rmdirSync dir
 
 
-module.exports = PackageDownloader
+module.exports = Package

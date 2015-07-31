@@ -1,7 +1,7 @@
 {Emitter} = require 'atom'
 
-FileDownloader = null
-PackageDownloader = null
+File = require './fetchers/file'
+Package = require './fetchers/package'
 
 class Fetcher
   options: null
@@ -12,16 +12,12 @@ class Fetcher
   fetch: ->
     switch @options.type
       when 'file'
-        FileDownloader ?= require './file-downloader'
-        fileDownloader = new FileDownloader(@options)
-        fileDownloader.fetch () =>
-          @emitter.emit 'done'
-
+        method = new File(@options)
       when 'package'
-        PackageDownloader ?= require './package-downloader'
-        packageDownloader = new PackageDownloader(@options)
-        packageDownloader.fetch () =>
-          @emitter.emit 'done'
+        method = new Package(@options)
+
+    method.fetch () =>
+      @emitter.emit 'done'
 
   onDidFinish: (callback)->
     @emitter.on 'done', callback

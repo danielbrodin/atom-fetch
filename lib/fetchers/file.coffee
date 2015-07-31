@@ -1,7 +1,7 @@
 request = require 'request'
 fs = require 'fs-extended'
 
-class FileDownloader
+class File
   constructor: (@options) ->
 
   fetch: (callback) ->
@@ -27,4 +27,4 @@ class FileDownloader
           activeEditor.setText body
           callback()
 
-module.exports = FileDownloader
+module.exports = File
