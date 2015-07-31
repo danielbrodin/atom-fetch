@@ -11,11 +11,8 @@ class ListView extends SelectListView
 
   confirmed: (item) ->
     @cancel()
-    atom.notifications.addInfo "Fetching #{item.title}..."
     fetcher = new Fetcher(item)
     fetcher.fetch()
-    fetcher.onDidFinish () ->
-      atom.notifications.addSuccess "Done fetching #{item.title}"
 
   toggle: (@options) ->
     if @panel?.isVisible()
