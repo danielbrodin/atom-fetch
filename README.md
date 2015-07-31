@@ -1,8 +1,10 @@
 # Fetch
 
-A package for downloading files and packages (`.zip`) directly into your project.
+A package for downloading files and packages (`.zip`) directly into your project, based on the Sublime Text package [Nettuts+ Fetch](http://code.tutsplus.com/articles/introducing-nettuts-fetch--net-23490).
 
 Fetch have only been tested on a Mac with Yosemite, so please let me know how it works out on Windows.
+
+Fetch is based on the Sublime Text package .
 
 ## Usage
 ### Tree view
