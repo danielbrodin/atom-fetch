@@ -5,17 +5,17 @@ class File
   constructor: (@options) ->
 
   fetch: (callback) ->
-    if options.path
-      filename = path.basename(options.url)
-      filepath = "#{options.path}/#{filename}"
+    if @options.path
+      filename = path.basename(@options.url)
+      filepath = "#{@options.path}/#{filename}"
       file = fs.createWriteStream(filepath)
 
-      request(options.url)
+      request(@options.url)
         .pipe(file)
         .on 'close', () ->
           callback()
     else
-      request options.url, (err, response, body) ->
+      request @options.url, (err, response, body) ->
         activeEditor = atom.workspace.getActiveTextEditor()
 
         if activeEditor.getText()
