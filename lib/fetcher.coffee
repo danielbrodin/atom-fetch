@@ -16,10 +16,11 @@ class Fetcher
       when 'package'
         method = new Package(@options)
 
-    atom.notifications.addInfo "Fetching #{@options.title}..."
+    title = @options.title
+    atom.notifications.addInfo "Fetching #{title}..."
 
     method.fetch () ->
-      atom.notifications.addSuccess "Done fetching #{@options.title}"
+      atom.notifications.addSuccess "Done fetching #{title}"
 
   onDidFinish: (callback)->
     @emitter.on 'done', callback
