@@ -10,6 +10,8 @@ module.exports =
     @subscriptions.add atom.commands.add 'atom-text-editor',
       'fetch:file': =>
         @toggle('file')
+      'fetch:package': =>
+        @toggle('package')
 
     @subscriptions.add atom.commands.add '.tree-view .directory.selected',
       'fetch:file': (e) =>

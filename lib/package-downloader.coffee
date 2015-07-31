@@ -8,6 +8,10 @@ class PackageDownloader
   constructor: (@options) ->
 
   fetch: (callback) ->
+    if not @options.path
+      projectPaths = atom.project.getPaths()
+      @options.path = projectPaths[0]
+
     filename = @options.title.replace(' ', '_').toLowerCase()
     endPath = @options.path
     tmpFilepath = endPath
