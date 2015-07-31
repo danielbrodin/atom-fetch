@@ -1,4 +1,5 @@
 request = require 'request'
+path = require 'path'
 fs = require 'fs-extended'
 
 class File
