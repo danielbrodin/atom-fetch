@@ -48,7 +48,8 @@ module.exports =
       files:
         "jquery": "http://code.jquery.com/jquery.js"
       packages:
-        "html5-boilerplate": "https://github.com/h5bp/html5-boilerplate/zipball/master"
+        "html5-boilerplate":
+          "https://github.com/h5bp/html5-boilerplate/zipball/master"
 
     if not atom.config.get('fetch.files')
       atom.config.set 'fetch.files', defaults.files
