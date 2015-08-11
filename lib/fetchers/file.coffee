@@ -31,11 +31,12 @@ class File
           callback()
 
   setDefaultPath: (editor) ->
-    saveOptions = editor.getSaveDialogOptions?() ? {}
-    path = atom.project.getPaths()[0]
-    filename = path.basename(@options.url)
-    saveOptions.defaultPath ?= "#{projectPath}/#{filename}"
-    editor.getSaveDialogOptions = () ->
-      saveOptions
+    unless editor.getPath()
+      saveOptions = editor.getSaveDialogOptions?() ? {}
+      path = atom.project.getPaths()[0]
+      filename = path.basename(@options.url)
+      saveOptions.defaultPath ?= "#{projectPath}/#{filename}"
+      editor.getSaveDialogOptions = () ->
+        saveOptions
 
 module.exports = File
