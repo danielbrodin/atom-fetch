@@ -30,10 +30,10 @@ class File
           @setDefaultPath(activeEditor)
           callback()
 
-  setDefaultPath: (editor) ->
+  setDefaultPath: (editor) =>
     unless editor.getPath()
       saveOptions = editor.getSaveDialogOptions?() ? {}
-      path = atom.project.getPaths()[0]
+      projectPath = atom.project.getPaths()[0]
       filename = path.basename(@options.url)
       saveOptions.defaultPath ?= "#{projectPath}/#{filename}"
       editor.getSaveDialogOptions = () ->
