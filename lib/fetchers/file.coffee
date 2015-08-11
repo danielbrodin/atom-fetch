@@ -16,16 +16,26 @@ class File
         .on 'close', () ->
           callback()
     else
-      request @options.url, (err, response, body) ->
+      request @options.url, (err, response, body) =>
         activeEditor = atom.workspace.getActiveTextEditor()
 
         if activeEditor.getText()
           promise = atom.workspace.open()
-          promise.done (editor) ->
+          promise.done (editor) =>
             editor.setText body
+            @setDefaultPath(editor)
             callback()
         else
           activeEditor.setText body
+          @setDefaultPath(activeEditor)
           callback()
+
+  setDefaultPath: (editor) ->
+    saveOptions = editor.getSaveDialogOptions?() ? {}
+    path = atom.project.getPaths()[0]
+    filename = path.basename(@options.url)
+    saveOptions.defaultPath ?= "#{projectPath}/#{filename}"
+    editor.getSaveDialogOptions = () ->
+      saveOptions
 
 module.exports = File
